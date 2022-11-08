@@ -9,10 +9,12 @@ from .devices import DevicesApi
 from .groups import GroupsApi
 from .licenses import LicensesApi
 from .locations import LocationsApi
+from .messages import MessagesApi
 from .organizations import OrganizationApi
 from .people import PeopleApi
 from .person_settings import PersonSettingsApi
 from .rest import RestSession
+from .rooms import RoomsApi
 from .telephony import TelephonyApi
 from .tokens import Tokens
 from .webhook import WebhookApi
@@ -42,12 +44,16 @@ class WebexSimpleApi:
     licenses: LicensesApi
     #: Location API :class:`locations.LocationsApi`
     locations: LocationsApi
+    #: Messages API :class: `messages.MessageApi`
+    messages: MessagesApi
     #: organization settings API
     organizations: OrganizationApi
     #: Person settings API :class:`person_settings.PersonSettingsApi`
     person_settings: PersonSettingsApi
     #: People API :class:`people.PeopleApi`
     people: PeopleApi
+    #: Room API :class: `room.RoomApi`
+    rooms: RoomsApi
     #: Telephony (features) API :class:`telephony.TelephonyApi`
     telephony: TelephonyApi
     #: Webhooks API :class:`webhook.WebhookApi`
@@ -83,9 +89,11 @@ class WebexSimpleApi:
         self.groups = GroupsApi(session=session)
         self.licenses = LicensesApi(session=session)
         self.locations = LocationsApi(session=session)
+        self.messages = MessagesApi(session=session)
         self.organizations = OrganizationApi(session=session)
         self.person_settings = PersonSettingsApi(session=session)
         self.people = PeopleApi(session=session)
+        self.rooms = RoomsApi(session=session)
         self.telephony = TelephonyApi(session=session)
         self.webhook = WebhookApi(session=session)
         self.workspaces = WorkspacesApi(session=session)
