@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """
 Example script
-Creates a room, sends, retrieves, updates messages, then updates, counts, and deletes the room.
+Creates a room, sends, retrieves, updates some messages, then updates, counts and deletes the room.
+Then gets a total count of the number of rooms.
 Pauses are inserted between operations in order to view results in Webex App
 """
 from dotenv import load_dotenv
@@ -94,7 +95,7 @@ sleep(delay)
 api.rooms.delete(updated_room.room_id)
 print(f'*** DELETED ROOM "{updated_room.title} " ***\n    Details: {updated_room}')
 
-# Query all rooms to get a count
+# Query all rooms to get a count; this step might take a bit
 print(f'*** QUERYING ALL ROOMS ***')
 room_count = 0
 for room in api.rooms.list():
